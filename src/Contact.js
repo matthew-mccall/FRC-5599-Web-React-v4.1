@@ -1,4 +1,4 @@
-Herokimport * as React from 'react';
+import * as React from 'react';
 import * as FeatherIcon from 'react-feather';
 import { hot } from "react-hot-loader";
 import { TooltipHost } from '@fluentui/react/lib/Tooltip';
