@@ -13,26 +13,37 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            teamInfo: ""
+            teamInfo: {},
+            gotData: false
         }
     }
 
     componentDidMount() {
-
         $.get("http://127.0.0.1:3001", (data) => {
             this.setState({
-                teamInfo: data.team
+                teamInfo: data.team,
+                gotData: true
             })
-            console.log(data)
+        })
+
+        $(".defer-bg").each(function () {
+            $(this).css("background", $(this).attr("data-bg"))
+            $(this).css("background-size", "cover")
+            $(this).css("background-position", "center center")
+            if ($("window").width >= 768) {
+                $(this).css("background-attachment", "fixed")
+            } else {
+                $(this).css("background-attachment", "scroll")
+            }
         })
     }
 
     render() {
-        const { teamInfo } = this.state;
+        const { gotData, teamInfo } = this.state;
         return (
             <main>
                 <section>
-                    <div className="defer-bg parallax" style={{ background: "linear-gradient(0deg, rgba(30, 108, 147, 0.8), rgba(30, 108, 147, 0.8)), url('img/robot_1.jpg')" }}>
+                    <div className="defer-bg parallax" data-bg="linear-gradient(0deg, rgba(30, 108, 147, 0.8), rgba(30, 108, 147, 0.8)), url('img/robot_1.jpg')">
                         <div className="container-fluid">
                             <div className="row min-vh-100 text-light">
                                 <div className="col my-auto">
@@ -52,12 +63,12 @@ class Home extends React.Component {
                     </div>
                     <div className="py-5" style={{ background: NeutralColors.gray30 }}>
                         <div className="container">
-                            <p>{teamInfo.desc}</p>
+                            <p>{gotData && teamInfo.desc}</p>
                         </div>
                     </div>
                 </section>
                 <section>
-                    <div className="defer-bg parallax" style={{ background: "linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/history.jpg')" }}>
+                    <div className="defer-bg parallax" data-bg="linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/history.jpg')">
                         <div className="container-fluid">
                             <div className="row min-vh-100 text-light">
                                 <div className="col my-auto">
@@ -69,7 +80,7 @@ class Home extends React.Component {
                                             <h1 className="display-4">Our History</h1>
                                         </div>
                                         <hr className="border-light" />
-                                        <p>{teamInfo.history}</p>
+                                        <p>{gotData && teamInfo.history}</p>
                                     </div>
                                 </div>
                             </div>
