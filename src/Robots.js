@@ -20,7 +20,7 @@ class Home extends React.Component {
 
     componentDidMount() {
 
-        $.get("http://127.0.0.1:3001/robots", (data) => {
+        $.get("https://glacial-depths-27412.herokuapp.com/robots", (data) => {
             this.setState({
                 robots: data.robots,
                 gotData: true

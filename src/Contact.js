@@ -21,7 +21,7 @@ class Contact extends React.Component {
 
     componentDidMount() {
 
-        $.get("http://127.0.0.1:3001/contact", (data) => {
+        $.get("https://glacial-depths-27412.herokuapp.com/contact", (data) => {
             this.setState({
                 contacts: data.contacts,
                 gotData: true
