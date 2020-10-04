@@ -48,139 +48,139 @@ class App extends React.Component {
 
                 <div id="mobileMenu" className="d-none vh-100 p-5" style={{ backgroundColor: NeutralColors.black, zIndex: 100, overflowY: "scroll" }}>
                     <h1 className="display-4" style={{ color: NeutralColors.gray30 }}>Menu</h1>
-                    <nav class="nav flex-column" style={{ fontSize: FontSizes.size24, color: NeutralColors.gray30 }}>
-                        <div class="row" onClick={() => {
+                    <nav className="nav flex-column" style={{ fontSize: FontSizes.size24, color: NeutralColors.gray30 }}>
+                        <div className="row" onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="col-auto">
+                            <div className="col-auto">
                                 <Icon iconName="ChromeClose" />
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 Close
                             </div>
                         </div>
-                        <a href="/" class="my-2" onClick={() => {
+                        <Link To="/" className="my-2" onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="row">
-                                <div class="col-auto">
+                            <div className="row">
+                                <div className="col-auto">
                                     <Icon iconName="Home" />
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     Home
                                 </div>
                             </div>
-                        </a>
-                        <a href="/members" class="my-2" onClick={() => {
+                        </Link>
+                        <Link To="/members" className="my-2" onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="row">
-                                <div class="col-auto">
+                            <div className="row">
+                                <div className="col-auto">
                                     <Icon iconName="Teamwork" />
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     Members
                                 </div>
                             </div>
-                        </a>
-                        <a href="/competitions" class="my-2" onClick={() => {
+                        </Link>
+                        <a href="/competitions" className="my-2" onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="row" onClick={() => {
+                            <div className="row" onClick={() => {
                                 $("#mobileMenu").addClass("d-none")
                             }}>
-                                <div class="col-auto">
+                                <div className="col-auto">
                                     <img src="img/FIRST_Vertical_RGB_reverse.png" width="24pt" alt="FIRST Logo"></img>
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     FIRST Robotics
                                 </div>
                             </div>
                         </a>
-                        <a href="/robots" class="my-2 " onClick={() => {
+                        <Link To="/robots" className="my-2 " onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="row">
-                                <div class="col-auto">
+                            <div className="row">
+                                <div className="col-auto">
                                     <Icon iconName="Robot" />
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     Robots
                                 </div>
                             </div>
-                        </a>
-                        <a href="/projects" class="my-2 " onClick={() => {
+                        </Link>
+                        <Link To="/projects" className="my-2 " onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="row">
-                                <div class="col-auto">
+                            <div className="row">
+                                <div className="col-auto">
                                     <Icon iconName="ClipboardList" />
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     Projects
                                 </div>
                             </div>
-                        </a>
-                        <a href="https://flic.kr/ps/3b8mmU" class="my-2 " onClick={() => {
+                        </Link>
+                        <a href="https://flic.kr/ps/3b8mmU" className="my-2 " onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="row">
-                                <div class="col-auto">
+                            <div className="row">
+                                <div className="col-auto">
                                     <Icon iconName="Album" />
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     Gallery
                                 </div>
                             </div>
                         </a>
-                        <a href="/social" class="my-2 " onClick={() => {
+                        <Link To="/social" className="my-2 " onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="row">
-                                <div class="col-auto">
+                            <div className="row">
+                                <div className="col-auto">
                                     <Icon iconName="Share" />
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     Social Media
                                 </div>
                             </div>
-                        </a>
-                        <a href="/contact" class="my-2 " onClick={() => {
+                        </Link>
+                        <Link To="/contact" className="my-2 " onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="row">
-                                <div class="col-auto">
+                            <div className="row">
+                                <div className="col-auto">
                                     <Icon iconName="Headset" />
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     Contact Us
                                 </div>
                             </div>
-                        </a>
-                        <a href="/resources" class="my-2 " onClick={() => {
+                        </Link>
+                        <Link To="/resources" className="my-2 " onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="row">
-                                <div class="col-auto">
+                            <div className="row">
+                                <div className="col-auto">
                                     <Icon iconName="Folder" />
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     Resources
                                 </div>
                             </div>
-                        </a>
-                        <a href="/search" class="my-2 " onClick={() => {
+                        </Link>
+                        <Link To="/search" className="my-2 " onClick={() => {
                             $("#mobileMenu").addClass("d-none")
                         }}>
-                            <div class="row">
-                                <div class="col-auto">
+                            <div className="row">
+                                <div className="col-auto">
                                     <Icon iconName="Search" />
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     Search
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     </nav>
                 </div>
 

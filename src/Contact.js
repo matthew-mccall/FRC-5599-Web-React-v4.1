@@ -1,10 +1,6 @@
 import * as React from 'react';
-import * as FeatherIcon from 'react-feather';
 import { hot } from "react-hot-loader";
-import { TooltipHost } from '@fluentui/react/lib/Tooltip';
-import { Icon } from '@fluentui/react/lib/Icon';
 import { NeutralColors } from '@fluentui/theme';
-import { FontSizes } from '@fluentui/theme';
 import $ from 'jquery';
 import { Shimmer } from '@fluentui/react';
 
