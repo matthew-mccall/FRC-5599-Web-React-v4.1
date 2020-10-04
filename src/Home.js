@@ -19,7 +19,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        $.get("http://127.0.0.1:3001", (data) => {
+        $.get("https://glacial-depths-27412.herokuapp.com/", (data) => {
             this.setState({
                 teamInfo: data.team,
                 gotData: true

@@ -16,7 +16,7 @@ class Resources extends React.Component {
         return (
             <div className="row flex-grow-1" style={{ color: NeutralColors.gray30 }}>
                 <div className="col my-auto">
-                    <div className="container">
+                    <div className="container py-5">
                         <main>
                             <h1>Coming Soon!</h1>
                         </main>

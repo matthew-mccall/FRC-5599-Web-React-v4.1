@@ -25,7 +25,7 @@ class Social extends React.Component {
         return (
             <div className="row flex-grow-1 defer-bg" data-bg="linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/history.jpg')">
                 <div className="col my-auto">
-                    <div style={{ color: NeutralColors.gray30 }}>
+                    <div className="py-5 container" style={{ color: NeutralColors.gray30 }}>
                         <main>
                             <div className="d-none d-sm-none d-md-block text-center" style={{ color: NeutralColors.gray30 }}>
                                 <h1 className="display-1">Social Media</h1>

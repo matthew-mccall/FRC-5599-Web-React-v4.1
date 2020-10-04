@@ -15,7 +15,7 @@ class Search extends React.Component {
     render() {
         return (
             <div className="row flex-grow-1" style={{ color: NeutralColors.gray30 }}>
-                <div className="col my-auto">
+                <div className="col my-auto p-5">
                     <div className="container">
                         <main>
                             <h1>Coming Soon!</h1>
