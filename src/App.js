@@ -49,25 +49,6 @@ class App extends React.Component {
 
         return (
             <Router>
-                <div className="modal fade" tabindex="-1">
-                    <div className="modal-dialog modal-dialog-centered">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">Announcement!</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <p>We are holding interest meetings next week on October 9th and 10th!! We will be briefly discussing our team dynamics and answer any of your questions. Come join the Sentinels this week! If you are interested, fill out the <a href="https://docs.google.com/forms/d/1THMzPk22EDhq0no4siEVnBoE0XP8t2B9Jy17IjqhsI8" target="_blank">Google Form</a> to attend the meeting. Hope to see bright potentials arrive! See you there!</p>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div id="mobileMenu" className="d-none vh-100 p-5" style={{ backgroundColor: NeutralColors.black, zIndex: 100, overflowY: "scroll" }}>
                     <h1 className="display-4" style={{ color: NeutralColors.gray30 }}>Menu</h1>
                     <nav className="nav flex-column" style={{ fontSize: FontSizes.size24, color: NeutralColors.gray30 }}>
