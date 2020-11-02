@@ -1,11 +1,8 @@
 import * as React from 'react';
-import * as FeatherIcon from 'react-feather';
 import { hot } from "react-hot-loader";
-import { Icon } from '@fluentui/react/lib/Icon';
-import { NeutralColors } from '@fluentui/theme';
-import { FontSizes } from '@fluentui/theme';
-import $ from 'jquery';
+import { Text } from "@fluentui/react/lib/Text"
 import { Shimmer } from '@fluentui/react';
+import $ from 'jquery';
 
 
 class Members extends React.Component {
@@ -17,11 +14,11 @@ class Members extends React.Component {
     }
 
     componentDidMount() {
-        $(".defer-bg").each(function () {
+        $(".parallax").each(function () {
             $(this).css("background", $(this).attr("data-bg"))
             $(this).css("background-size", "cover")
             $(this).css("background-position", "center center")
-            if ($("window").width >= 768) {
+            if ($(window).width() >= 768) {
                 $(this).css("background-attachment", "fixed")
             } else {
                 $(this).css("background-attachment", "scroll")
@@ -33,7 +30,7 @@ class Members extends React.Component {
         return (
             <main>
                 <section>
-                    <div className="defer-bg" data-bg="linear-gradient(0deg, rgba(30, 108, 147, 0.8), rgba(30, 108, 147, 0.8)), url('img/robot_1.jpg')">
+                    <div className="parallax" data-bg="linear-gradient(0deg, rgba(30, 108, 147, 0.8), rgba(30, 108, 147, 0.8)), url('img/robot_1.jpg')">
                         <div className="container-fluid">
                             <div className="row min-vh-100 text-light">
                                 <div className="col my-auto">
@@ -45,7 +42,7 @@ class Members extends React.Component {
                                             <h1 className="display-4">Members and Divisions</h1>
                                             <hr className="border-light" />
                                         </div>
-                                        <p className="lead">Our team is divided into separate divisons that specialize in a specific field and work together as a team to produce a fully functional robot.</p>
+                                        <Text className="lead">Our team is divided into separate divisons that specialize in a specific field and work together as a team to produce a fully functional robot.</Text>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +50,7 @@ class Members extends React.Component {
                     </div>
                 </section>
                 <section>
-                    <div className="defer-bg" data-bg="linear-gradient(0deg, rgba(243, 134, 36, 0.8), rgba(243, 134, 36, 0.8)), url('img/mechanics.jpg')">
+                    <div className="parallax" data-bg="linear-gradient(0deg, rgba(243, 134, 36, 0.8), rgba(243, 134, 36, 0.8)), url('img/mechanics.jpg')">
                         <div className="container-fluid">
                             <div className="row min-vh-100 text-light">
                                 <div className="col my-auto">
@@ -64,7 +61,7 @@ class Members extends React.Component {
                                         <div className="d-lg-none">
                                             <h1 className="display-4">Mechanics</h1>
                                         </div>
-                                        <p>The Mechanics division handles the construction of the robot. Designing and building the core mechanisms using the proper tools. Online we can teach the different tools and techniques required to properly build a robot.</p>
+                                        <Text>The Mechanics division handles the construction of the robot. Designing and building the core mechanisms using the proper tools. Online we can teach the different tools and techniques required to properly build a robot.</Text>
                                         <ol>
                                             <li>Research on new possible drive trains, motors, and etc.</li>
                                             <li>Learning the name of the tools and how to use them.</li>
@@ -77,7 +74,7 @@ class Members extends React.Component {
                     </div>
                 </section>
                 <section>
-                    <div className="defer-bg" data-bg="linear-gradient(0deg, rgba(234, 30, 100, 0.8), rgba(234, 30, 100, 0.8)), url('img/electronics.jpg')">
+                    <div className="parallax" data-bg="linear-gradient(0deg, rgba(234, 30, 100, 0.8), rgba(234, 30, 100, 0.8)), url('img/electronics.jpg')">
                         <div className="container-fluid">
                             <div className="row min-vh-100 text-light">
                                 <div className="col my-auto">
@@ -88,7 +85,7 @@ class Members extends React.Component {
                                         <div className="d-lg-none">
                                             <h1 className="display-4">Electronics</h1>
                                         </div>
-                                        <p>Electronics deals with the power and control system of the robot. This includes working with batteries, circuit breakers, motor controllers, various sensors and wires. In the electronics division, one learns how to wire all these different components to make our robot/s function.</p>
+                                        <Text>Electronics deals with the power and control system of the robot. This includes working with batteries, circuit breakers, motor controllers, various sensors and wires. In the electronics division, one learns how to wire all these different components to make our robot/s function.</Text>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +93,7 @@ class Members extends React.Component {
                     </div>
                 </section>
                 <section>
-                    <div className="defer-bg" data-bg="linear-gradient(0deg, rgba(241, 197, 14, 0.8), rgba(241, 197, 14, 0.8)), url('img/46612998605_3af2defbeb_k.jpg')">
+                    <div className="parallax" data-bg="linear-gradient(0deg, rgba(241, 197, 14, 0.8), rgba(241, 197, 14, 0.8)), url('img/46612998605_3af2defbeb_k.jpg')">
                         <div className="container-fluid">
                             <div className="row min-vh-100 text-light">
                                 <div className="col my-auto">
@@ -107,7 +104,7 @@ class Members extends React.Component {
                                         <div className="d-lg-none">
                                             <h1 className="display-4">Programming</h1>
                                         </div>
-                                        <p>The Programming division is responsible for adding functionality to the robot through use of its motors, servos, sensors, etc. We deal with both human-controlled actions through gamepads and autonomous “sensor-based” actions to control most of the robot. All of this is handled over our laptop “Driver Station”, sending commands and reading data to and from the robot. After teaching you Java <em>(No prior experience required)</em> and how to use our various tools and software, come “Kick Off” when the competition is revealed, we will split into two groups.</p>
+                                        <Text>The Programming division is responsible for adding functionality to the robot through use of its motors, servos, sensors, etc. We deal with both human-controlled actions through gamepads and autonomous “sensor-based” actions to control most of the robot. All of this is handled over our laptop “Driver Station”, sending commands and reading data to and from the robot. After teaching you Java <em>(No prior experience required)</em> and how to use our various tools and software, come “Kick Off” when the competition is revealed, we will split into two groups.</Text>
                                         <ul>
                                             <li>The “Tele-Operated” group will focus on user-controlled actions for the robot and work with controllers. You will work with the driveteam to create the most comfortable and efficient control systems.</li>
                                             <li>The “Autonomous” group will focus on sensor and camera-based data to make the robot complete complex automated tasks without the aid of a person. This is more on the complex side and will require a lot of research.</li>
@@ -119,7 +116,7 @@ class Members extends React.Component {
                     </div>
                 </section>
                 <section>
-                    <div className="defer-bg" data-bg="linear-gradient(0deg, rgba(32, 140, 76, 0.8), rgba(32, 140, 76, 0.8)), url('img/40545476633_bc7a03d898_k.jpg')">
+                    <div className="parallax" data-bg="linear-gradient(0deg, rgba(32, 140, 76, 0.8), rgba(32, 140, 76, 0.8)), url('img/40545476633_bc7a03d898_k.jpg')">
                         <div className="container-fluid">
                             <div className="row min-vh-100 text-light">
                                 <div className="col my-auto">
@@ -130,7 +127,7 @@ class Members extends React.Component {
                                         <div className="d-lg-none">
                                             <h1 className="display-4">Computer-Aided Design</h1>
                                         </div>
-                                        <p>In this division, we will be doing design practices and lectures on features and what is necessary to teach you guys to design a robot in the computer.</p>
+                                        <Text>In this division, we will be doing design practices and lectures on features and what is necessary to teach you guys to design a robot in the computer.</Text>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +135,7 @@ class Members extends React.Component {
                     </div>
                 </section>
                 <section>
-                    <div className="defer-bg" data-bg="linear-gradient(0deg, rgba(45, 243, 208, 0.8), rgba(45, 243, 208, 0.8)), url('img/46632722835_14ca5fa131_k.jpg')">
+                    <div className="parallax" data-bg="linear-gradient(0deg, rgba(45, 243, 208, 0.8), rgba(45, 243, 208, 0.8)), url('img/46632722835_14ca5fa131_k.jpg')">
                         <div className="container-fluid">
                             <div className="row min-vh-100 text-light">
                                 <div className="col my-auto">
@@ -149,7 +146,7 @@ class Members extends React.Component {
                                         <div className="d-lg-none">
                                             <h1 className="display-4">Marketing</h1>
                                         </div>
-                                        <p>Our marketing division is one cohesive group, responsible for sponsor outreach, public appearance, and most importantly internal budget and activity management. Some of the work from this division includes:</p>
+                                        <Text>Our marketing division is one cohesive group, responsible for sponsor outreach, public appearance, and most importantly internal budget and activity management. Some of the work from this division includes:</Text>
                                         <ul>
                                             <li>Outreach through phone calls, emails, and in person interactions.</li>
                                             <li>Managing the team’s overall financial activities and elements including divisional budgets, logs of income, profit of each respective fundraiser.</li>

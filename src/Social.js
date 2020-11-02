@@ -2,20 +2,24 @@ import * as React from 'react';
 import * as FeatherIcon from 'react-feather';
 import { hot } from "react-hot-loader";
 import { TooltipHost } from '@fluentui/react/lib/Tooltip';
-import { Icon } from '@fluentui/react/lib/Icon';
 import { NeutralColors } from '@fluentui/theme';
-import { FontSizes } from '@fluentui/theme';
-import $ from 'jquery';
+import { Text } from "@fluentui/react/lib/Text"
 import { Shimmer } from '@fluentui/react';
+import $ from 'jquery';
 
 
 class Social extends React.Component {
 
     componentDidMount() {
-        $(".defer-bg").each(function () {
+        $(".parallax").each(function () {
             $(this).css("background", $(this).attr("data-bg"))
             $(this).css("background-size", "cover")
             $(this).css("background-position", "center center")
+            if ($(window).width() >= 768) {
+                $(this).css("background-attachment", "fixed")
+            } else {
+                $(this).css("background-attachment", "scroll")
+            }
         })
     }
 
@@ -23,7 +27,7 @@ class Social extends React.Component {
         const calloutProps = { gapSpace: 0 }
         const hostStyles = { root: { display: 'inline-block' } };
         return (
-            <div className="row flex-grow-1 defer-bg" data-bg="linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/history.jpg')">
+            <div className="row flex-grow-1 parallax" data-bg="linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/history.jpg')">
                 <div className="col my-auto">
                     <div className="py-5 container" style={{ color: NeutralColors.gray30 }}>
                         <main>

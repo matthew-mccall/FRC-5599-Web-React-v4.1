@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { hot } from "react-hot-loader";
 import { NeutralColors } from '@fluentui/theme';
-import $ from 'jquery';
 import { Shimmer } from '@fluentui/react';
+import { Text } from "@fluentui/react/lib/Text"
+import $ from 'jquery';
 
 
 class Contact extends React.Component {
@@ -10,25 +11,31 @@ class Contact extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            contacts: {},
+            contacts: null,
             gotData: false
         }
     }
 
     componentDidMount() {
 
-        $.get("https://glacial-depths-27412.herokuapp.com/contact", (data) => {
+        $.get("https://bnchs-robotics-server-v4.herokuapp.com/api/contacts", (data) => {
             this.setState({
-                contacts: data.contacts,
+                contacts: data,
                 gotData: true
             })
         })
 
-        $(".defer-bg").each(function () {
+        $(".parallax").each(function () {
             $(this).css("background", $(this).attr("data-bg"))
             $(this).css("background-size", "cover")
             $(this).css("background-position", "center center")
+            if ($(window).width() >= 768) {
+                $(this).css("background-attachment", "fixed")
+            } else {
+                $(this).css("background-attachment", "scroll")
+            }
         })
+
     }
 
     render() {
@@ -36,7 +43,7 @@ class Contact extends React.Component {
         const { gotData, contacts } = this.state;
 
         return (
-            <div className="row flex-grow-1 defer-bg" data-bg="linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/47510658841_1633658cf3_k.jpg')">
+            <div className="row flex-grow-1 parallax" data-bg="linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/47510658841_1633658cf3_k.jpg')">
                 <div className="col my-auto p-5">
                     <div style={{ color: NeutralColors.gray30 }}>
                         <main>
