@@ -1,11 +1,10 @@
 import * as React from 'react';
 import * as FeatherIcon from 'react-feather';
 import { hot } from "react-hot-loader";
-import { Icon } from '@fluentui/react/lib/Icon';
 import { NeutralColors } from '@fluentui/theme';
-import { FontSizes } from '@fluentui/theme';
+import { Text } from "@fluentui/react/lib/Text"
+import { Shimmer, Stack, StackItem } from '@fluentui/react';
 import $ from 'jquery';
-import { Shimmer } from '@fluentui/react';
 
 
 class Home extends React.Component {
@@ -13,25 +12,24 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            robots: {},
+            robots: null,
             gotData: false
         }
     }
 
     componentDidMount() {
 
-        $.get("https://glacial-depths-27412.herokuapp.com/robots", (data) => {
+        $.get("https://bnchs-robotics-server-v4.herokuapp.com/api/robots", (data) => {
             this.setState({
-                robots: data.robots,
+                robots: data,
                 gotData: true
             })
 
-            $(".defer-bg").each(function () {
+            $(".parallax").each(function () {
                 $(this).css("background", $(this).attr("data-bg"))
                 $(this).css("background-size", "cover")
-                $(this).css("background-repeat", "no-repeat")
-                $(this).css("background-position", "center")
-                if ($("window").width >= 768) {
+                $(this).css("background-position", "center center")
+                if ($(window).width() >= 768) {
                     $(this).css("background-attachment", "fixed")
                 } else {
                     $(this).css("background-attachment", "scroll")
@@ -42,12 +40,17 @@ class Home extends React.Component {
 
     render() {
         const { gotData, robots } = this.state;
+
+        const horizontalGapStackTokens = {
+            childrenGap: 10,
+        };
+
         return (
             <main>
                 {
                     gotData && robots.map(robot => (
                         <section>
-                            <div className="defer-bg" data-bg={"linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/robots/" + robot.name + ".jpg')"}>
+                            <div className="parallax" data-bg={`linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/robots/${robot.name}.jpg')`}>
                                 <div className="container-fluid">
                                     <div className="row min-vh-100 text-light">
                                         <div className="col my-auto">
@@ -59,7 +62,7 @@ class Home extends React.Component {
                                                     <h1 className="display-4 sentinels-font">{robot.name}</h1>
                                                     <hr className="border-light" />
                                                 </div>
-                                                <h2>{robot.year}</h2>
+                                                <h2>{robot.season}</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -67,13 +70,23 @@ class Home extends React.Component {
                             </div>
                             <div className="py-5" style={{ background: NeutralColors.gray30 }}>
                                 <div className="container">
-                                    {robot.biography}
+                                    <Text>
+                                        {robot.biography}
+                                    </Text>
+                                    <Stack horizontal tokens={horizontalGapStackTokens} className="mt-3">
+                                        {
+                                            Object.keys(robot.competitions).map(competition => (
+                                                <StackItem>
+                                                    <a className="btn btn-primary" href={robot.competitions[competition].link}>{robot.competitions[competition].name}</a>
+                                                </StackItem>
+                                            ))
+                                        }
+                                    </Stack>
                                 </div>
                             </div>
                         </section>
                     ))
                 }
-
             </main>
         );
     }
