@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Bladerunner;
+  src: url(../font/BLADRMF_.TTF);
+}
+
+h1 {
+    font-family: Bladerunner;
+    text-transform: lowercase;
+}
+
+.ignore-bladerunner {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: unset;
+}
