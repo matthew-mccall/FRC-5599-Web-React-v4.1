@@ -1,36 +1,34 @@
 import * as React from 'react';
-import * as FeatherIcon from 'react-feather';
 import { hot } from "react-hot-loader";
-import { Icon } from '@fluentui/react/lib/Icon';
 import { NeutralColors } from '@fluentui/theme';
-import { FontSizes } from '@fluentui/theme';
+import { Shimmer, Stack } from '@fluentui/react';
+import { Text } from "@fluentui/react/lib/Text"
 import $ from 'jquery';
-import { Shimmer } from '@fluentui/react';
-
+import VCenter from './VCenter';
 
 class Home extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            teamInfo: {},
+            teamInfo: undefined,
             gotData: false
         }
     }
 
     componentDidMount() {
-        $.get("https://glacial-depths-27412.herokuapp.com/", (data) => {
+        $.get("https://bnchs-robotics-server-v4.herokuapp.com/api/team", (data) => {
             this.setState({
-                teamInfo: data.team,
+                teamInfo: data,
                 gotData: true
             })
         })
 
-        $(".defer-bg").each(function () {
+        $(".parallax").each(function () {
             $(this).css("background", $(this).attr("data-bg"))
             $(this).css("background-size", "cover")
             $(this).css("background-position", "center center")
-            if ($("window").width >= 768) {
+            if ($(window).width() >= 768) {
                 $(this).css("background-attachment", "fixed")
             } else {
                 $(this).css("background-attachment", "scroll")
@@ -40,51 +38,71 @@ class Home extends React.Component {
 
     render() {
         const { gotData, teamInfo } = this.state;
+        const spacingTokens = {
+            childrenGap: '8pt'
+        }
+        const shimmerStyles = {
+            shimmer: NeutralColors.gray90,
+            shimmerWave: NeutralColors.gray60
+        }
+
         return (
             <main>
                 <section>
-                    <div className="defer-bg parallax" data-bg="linear-gradient(0deg, rgba(30, 108, 147, 0.8), rgba(30, 108, 147, 0.8)), url('img/robot_1.jpg')">
-                        <div className="container-fluid">
-                            <div className="row min-vh-100 text-light">
-                                <div className="col my-auto">
-                                    <div className="container">
-                                        <div className="d-none d-lg-block">
-                                            <h1 className="display-1 sentinels-font">The Sentinels</h1>
-                                        </div>
-                                        <div className="d-lg-none">
-                                            <h1 className="display-4 sentinels-font">The Sentinels</h1>
-                                            <hr className="border-light" />
-                                        </div>
-                                        <h2>Competitive Robotics Team | FRC 5599 BNCHS Sentinels</h2>
-                                    </div>
+                    <div className="parallax" data-bg="linear-gradient(0deg, rgba(30, 108, 147, 0.8), rgba(30, 108, 147, 0.8)), url('img/robot_1.jpg')">
+                        <VCenter>
+                            <div className="container py-5" style={{ color: NeutralColors.gray30 }}>
+                                <div className="d-none d-lg-block">
+                                    <h1 className="display-1 sentinels-font">The Sentinels</h1>
                                 </div>
+                                <div className="d-lg-none">
+                                    <h1 className="display-4 sentinels-font">The Sentinels</h1>
+                                    <hr className="border-light" />
+                                </div>
+                                <h2>Competitive Robotics Team | FRC 5599 BNCHS Sentinels</h2>
                             </div>
-                        </div>
+                        </VCenter>
                     </div>
                     <div className="py-5" style={{ background: NeutralColors.gray30 }}>
                         <div className="container">
-                            <p>{gotData && teamInfo.desc}</p>
+                            {gotData
+                                ? <Text>{teamInfo.desc}</Text>
+                                : <Stack verticalAlign="space-between" tokens={spacingTokens}>
+                                    <Shimmer shimmerColors={shimmerStyles} />
+                                    <Shimmer shimmerColors={shimmerStyles} />
+                                    <Shimmer shimmerColors={shimmerStyles} />
+                                    <Shimmer shimmerColors={shimmerStyles} />
+                                </Stack>
+                            }
                         </div>
                     </div>
                 </section>
                 <section>
-                    <div className="defer-bg parallax" data-bg="linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/history.jpg')">
-                        <div className="container-fluid">
-                            <div className="row min-vh-100 text-light">
-                                <div className="col my-auto">
-                                    <div className="container py-5">
-                                        <div className="d-none d-lg-block">
-                                            <h1 className="display-1">Our History</h1>
-                                        </div>
-                                        <div className="d-lg-none">
-                                            <h1 className="display-4">Our History</h1>
-                                        </div>
-                                        <hr className="border-light" />
-                                        <p>{gotData && teamInfo.history}</p>
-                                    </div>
+                    <div className="parallax" data-bg="linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/history.jpg')">
+                        <VCenter>
+                            <div className="container py-5" style={{ color: NeutralColors.gray30 }}>
+                                <div className="d-none d-lg-block">
+                                    <h1 className="display-1">Our History</h1>
                                 </div>
+                                <div className="d-lg-none">
+                                    <h1 className="display-4">Our History</h1>
+                                </div>
+                                <hr className="border-light" />
+                                {gotData
+                                    ? <Text>{teamInfo.history}</Text>
+                                    : <Stack tokens={spacingTokens}>
+                                        <Shimmer shimmerColors={shimmerStyles} />
+                                        <Shimmer shimmerColors={shimmerStyles} />
+                                        <Shimmer shimmerColors={shimmerStyles} />
+                                        <Shimmer shimmerColors={shimmerStyles} />
+                                        <Shimmer shimmerColors={shimmerStyles} />
+                                        <Shimmer shimmerColors={shimmerStyles} />
+                                        <Shimmer shimmerColors={shimmerStyles} />
+                                        <Shimmer shimmerColors={shimmerStyles} />
+                                    </Stack>
+                                }
                             </div>
-                        </div>
+                        </VCenter>
                     </div>
                 </section>
             </main>
