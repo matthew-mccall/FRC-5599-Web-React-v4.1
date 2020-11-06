@@ -1,0 +1,24 @@
+html, body
+{
+    min-height: 100%;
+}
+
+.menubtn
+{
+    transition: 0.5s;
+}
+
+.menubtn:hover {
+    background-color: white !important;
+    color: black !important;
+}
+
+@keyframes fadeIn
+{
+    0% { 
+        opacity: 0;
+    }
+    100% { 
+        opacity: 1; 
+    } 
+}

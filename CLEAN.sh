@@ -1,0 +1,1 @@
+rm public/js/bundle.js
